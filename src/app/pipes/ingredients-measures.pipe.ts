@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'ingredients-measures',
+  name: 'ingredientsMeasures',
   standalone: false
 })
 export class IngredientsMeasuresPipe implements PipeTransform {

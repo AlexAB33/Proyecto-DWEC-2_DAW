@@ -38,9 +38,7 @@ import { TagsPipe } from './pipes/tags.pipe';
     FormsModule
   ],
   providers: [
-    provideHttpClient(),
-    IngredientsMeasuresPipe,
-    TagsPipe
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })

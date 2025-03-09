@@ -42,7 +42,7 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><b>Category:</b> {{ res.strCategory }}</li>
         <li class="list-group-item"><b>Area:</b> {{ res.strArea }}</li>
-        <li class="list-group-item"><b>Tags:</b> {{ res.strTags || "None" }}</li>
+        <li class="list-group-item"><b>Tags:</b> {{ (res | tags).strTags }}</li>
       </ul>
 
       <!-- Botón de detalles -->

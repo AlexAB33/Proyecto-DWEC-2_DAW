@@ -16,8 +16,8 @@
       <!-- Ingredientes -->
       <h3>Ingredients:</h3>
       <ul class="list-group mb-4">
-        <li class="list-group-item" *ngFor="let ingredient of result.strIngredients; let i = index">
-          <span class="fw-bold">{{ result.strMeasures[i] }}</span> {{ ingredient }}
+        <li class="list-group-item" *ngFor="let ingredient of (result | ingredientsMeasures).strIngredients; let i = index">
+          <span class="fw-bold">{{ (result | ingredientsMeasures).strMeasures[i] }}</span> {{ ingredient }}
         </li>
       </ul>
 
@@ -34,7 +34,7 @@
   <div class="row mt-4">
     <div class="col-12">
       <h3>Tags:</h3>
-      <p class="mb-4">{{ result.strTags || "None" }}</p>
+      <p class="mb-4">{{ (result | tags).strTags }}</p>
     </div>
   </div>
 

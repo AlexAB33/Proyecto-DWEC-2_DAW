@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MealService } from '../../services/meal.service';
 import { IMeal } from '../../interfaces/meal';
-import { IngredientsMeasuresPipe } from '../../pipes/ingredients-measures.pipe';
-import { TagsPipe } from '../../pipes/tags.pipe';
 
 @Component({
   selector: 'app-random',
@@ -14,9 +12,7 @@ export class RandomComponent implements OnInit {
   result!: IMeal;
 
   constructor(
-    private mealService: MealService,
-    private ingredientsMeasuresPipe: IngredientsMeasuresPipe,
-    private tagsPipe: TagsPipe
+    private mealService: MealService
   ) {}
 
   // Inicializar el componente
@@ -25,11 +21,9 @@ export class RandomComponent implements OnInit {
   }
 
   // Obtener una comida aleatoria
-  getRandomMeal() {
+  getRandomMeal(): void {
     this.mealService.getRandomMeal().subscribe((item) => {
       this.result = item.meals[0];
-      this.result = this.ingredientsMeasuresPipe.transform(this.result);
-      this.result = this.tagsPipe.transformOne(this.result);
     });
   }
 
