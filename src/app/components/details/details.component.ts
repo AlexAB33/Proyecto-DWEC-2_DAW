@@ -26,7 +26,7 @@ export class DetailsComponent implements OnInit {
       (item) => {
         this.result = item.meals[0];
         this.result = this.ingredientsMeasuresPipe.transform(this.result);
-        this.result = this.tagsPipe.transform(this.result);
+        this.result = this.tagsPipe.transformOne(this.result);
       }
     );
   }

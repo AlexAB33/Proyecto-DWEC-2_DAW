@@ -38,7 +38,7 @@ export class SearchComponent {
         this.mealService.getMealByFirstLetter(this.searchInput).subscribe(
           (item) => {
             this.result = item.meals;
-            this.tagsPipe.transform(this.mealService);
+            this.tagsPipe.transform(this.result);
           }
         );
         break;
@@ -55,7 +55,7 @@ export class SearchComponent {
               this.mealService.getMealById(item.idMeal).subscribe(
                 (mealById) => {
                   this.result.push(mealById.meals[0]);
-                  this.tagsPipe.transform(this.mealService);
+                  this.tagsPipe.transform(this.result);
                 }
               );
             });
@@ -75,7 +75,7 @@ export class SearchComponent {
               this.mealService.getMealById(item.idMeal).subscribe(
                 (mealById) => {
                   this.result.push(mealById.meals[0]);
-                  this.tagsPipe.transform(this.mealService);
+                  this.tagsPipe.transform(this.result);
                 }
               );
             });
@@ -95,7 +95,7 @@ export class SearchComponent {
               this.mealService.getMealById(item.idMeal).subscribe(
                 (mealById) => {
                   this.result.push(mealById.meals[0]);
-                  this.tagsPipe.transform(this.mealService);
+                  this.tagsPipe.transform(this.result);
                 }
               );
             });

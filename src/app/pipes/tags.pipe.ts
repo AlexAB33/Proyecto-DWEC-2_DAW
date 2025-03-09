@@ -7,23 +7,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TagsPipe implements PipeTransform {
 
   transform(meal: any): any {
-    if (Array.isArray(meal)) {
-      meal.forEach(item => {
-        this.transformTags(item);
-      });
-    } else if (meal.strTags) {
-      this.transformTags(meal);
-    }
+    meal.forEach((item: any) => {
+      item.strTags = item.strTags.replaceAll(",", ", ")
+    });
     return meal;
   }
 
-  transformTags(meal: any): any {
-    if (meal.strTags) {
-      meal.strTags = meal.strTags.replaceAll(",", ", ");
-    } else {
-      meal.strTags = "No tags";
-    }
-
+  transformOne(meal: any): any {
+    meal.strTags = meal.strTags.replaceAll(",", ", ")
     return meal;
   }
 }

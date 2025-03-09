@@ -38,7 +38,7 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><b>Category:</b> {{ res.strCategory }}</li>
           <li class="list-group-item"><b>Area:</b> {{ res.strArea }}</li>
-          <li class="list-group-item"><b>Tags:</b> {{ res.strTags }}</li>
+          <li class="list-group-item"><b>Tags:</b> {{ res.strTags || "None" }}</li>
         </ul>
         <div class="card-body">
           <button class="btn btn-primary" (click)="details(res.idMeal)">Details</button>
