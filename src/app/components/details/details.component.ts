@@ -21,7 +21,9 @@ export class DetailsComponent implements OnInit {
     private tagsPipe: TagsPipe
   ) {}
 
+  // Inicializar el componente
   ngOnInit(): void {
+    // Obtener los detalles de la comida pasando el id de la comida
     this.mealService.getMealById(this.route.snapshot.params['id']).subscribe(
       (item) => {
         this.result = item.meals[0];

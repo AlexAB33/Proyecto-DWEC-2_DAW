@@ -8,7 +8,7 @@ export interface IMeal {
   strMealThumb: string;
   strTags: string[];
   strYoutube: string;
-  strIngredient: string;
+  strIngredient: string; // Para buscar por ingrediente
   strIngredients: string[];
   strMeasures: string[];
   strSource: string;

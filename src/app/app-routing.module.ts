@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'list', component: ListComponent },
   { path: 'random', component: RandomComponent },
   { path: 'details/:id', component: DetailsComponent },
+  { path: 'search/:type/:value', component: SearchComponent },
   { path: '**', component: NotFoundComponent },
 ];
 @NgModule({

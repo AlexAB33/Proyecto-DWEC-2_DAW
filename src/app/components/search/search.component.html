@@ -1,8 +1,8 @@
-<div class="container py-5">
+<div class="py-5">
   <div class="row justify-content-center">
       <div class="col">
           <form #searchForm="ngForm">
-              <div class="input-group mb-5">
+              <div class="input-group">
                   <select class="form-select" style="max-width: 150px;" [(ngModel)]="searchType" name="searchType">
                     <option value="n">Name</option>
                     <option value="f">First letter</option>
@@ -18,31 +18,36 @@
   </div>
 </div>
 
-<!-- Formulario de búsqueda (sin cambios) -->
+<!-- Formulario de búsqueda -->
+<div class="row">
+  <!-- Mostrar mensaje si no hay resultados -->
+  <div class="col-12 text-center" *ngIf="!result">
+    <h3 class="mb-5">No results found</h3>
+  </div>
 
-<div class="container">
-  <div class="row">
-    <!-- Mostrar mensaje si no hay resultados -->
-    <div class="col-12 text-center" *ngIf="!result">
-      <h3>No se encontraron resultados.</h3>
-    </div>
+  <!-- Mostrar tarjetas de resultados -->
+  <div class="col-md-4 mb-4" *ngFor="let res of result">
+    <div class="card h-100">
+      <!-- Imagen de la comida -->
+      <img [src]="res.strMealThumb" class="card-img-top" [alt]="res.strMeal">
+      <div class="card-body">
+        <!-- Título de la comida -->
+        <h5 class="card-title">{{ res.strMeal | uppercase }}</h5>
 
-    <!-- Mostrar tarjetas de resultados -->
-    <div class="col-md-4 mb-4" *ngFor="let res of result">
-      <div class="card h-100">
-        <img [src]="res.strMealThumb" class="card-img-top" [alt]="res.strMeal">
-        <div class="card-body">
-          <h5 class="card-title">{{ res.strMeal | uppercase }}</h5>
-          <p class="card-text">{{ res.strInstructions | slice:0:200 }}...</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><b>Category:</b> {{ res.strCategory }}</li>
-          <li class="list-group-item"><b>Area:</b> {{ res.strArea }}</li>
-          <li class="list-group-item"><b>Tags:</b> {{ res.strTags || "None" }}</li>
-        </ul>
-        <div class="card-body">
-          <button class="btn btn-primary" (click)="details(res.idMeal)">Details</button>
-        </div>
+        <!-- Descripción de la comida -->
+        <p class="card-text">{{ res.strInstructions | slice:0:200 }}...</p>
+      </div>
+
+      <!-- Lista de categorías, áreas y tags -->
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Category:</b> {{ res.strCategory }}</li>
+        <li class="list-group-item"><b>Area:</b> {{ res.strArea }}</li>
+        <li class="list-group-item"><b>Tags:</b> {{ res.strTags || "None" }}</li>
+      </ul>
+
+      <!-- Botón de detalles -->
+      <div class="card-body">
+        <button class="btn btn-primary" (click)="details(res.idMeal)">Details</button>
       </div>
     </div>
   </div>

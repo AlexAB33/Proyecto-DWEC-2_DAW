@@ -19,10 +19,12 @@ export class RandomComponent implements OnInit {
     private tagsPipe: TagsPipe
   ) {}
 
+  // Inicializar el componente
   ngOnInit(): void {
     this.getRandomMeal();
   }
 
+  // Obtener una comida aleatoria
   getRandomMeal() {
     this.mealService.getRandomMeal().subscribe((item) => {
       this.result = item.meals[0];
@@ -31,6 +33,7 @@ export class RandomComponent implements OnInit {
     });
   }
 
+  // Recargar la página
   reload(): void {
     window.location.reload();
   }

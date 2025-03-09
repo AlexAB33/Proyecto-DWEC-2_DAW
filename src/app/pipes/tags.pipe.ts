@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   standalone: false
 })
 export class TagsPipe implements PipeTransform {
-
+  // Transformar las tags de las comidas
   transform(meal: any): any {
     meal.forEach((item: any) => {
       item.strTags = item.strTags.replaceAll(",", ", ")
@@ -13,6 +13,7 @@ export class TagsPipe implements PipeTransform {
     return meal;
   }
 
+  // Transformar las tags de una sola comida
   transformOne(meal: any): any {
     meal.strTags = meal.strTags.replaceAll(",", ", ")
     return meal;

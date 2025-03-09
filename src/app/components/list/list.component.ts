@@ -15,15 +15,19 @@ export class ListComponent implements OnInit {
 
   constructor(private mealService: MealService) {}
 
+  // Inicializar el componente
   ngOnInit() {
+    // Obtener todas las categorías
     this.mealService.listAllCategories().subscribe(
       (item) => this.categories = item.meals
     );
 
+    // Obtener todas las áreas
     this.mealService.listAllAreas().subscribe(
       (item) => this.areas = item.meals
     );
 
+    // Obtener todos los ingredientes
     this.mealService.listAllIngredients().subscribe(
       (item) => this.ingredients = item.meals
     );

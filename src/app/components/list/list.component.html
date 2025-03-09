@@ -1,14 +1,16 @@
-<div class="container py-5">
+<div class="py-5">
   <h1 class="display-4 fw-bold text-center mb-5">Lists</h1>
 
   <div class="row">
     <!-- Categorías -->
     <div class="col-md-4 mb-4 mb-md-0">
       <div class="list-container">
-        <h2>Categorías</h2>
+        <h2>Categories</h2>
         <ul>
+          <!-- Recorrer las categorías -->
           <li *ngFor="let category of categories">
-            {{ category.strCategory }}
+            <!-- Enlace a la página de búsqueda con el tipo category (c) y el valor -->
+            <a class="text-decoration-none text-white link-info" routerLink="/search/c/{{ category.strCategory }}">{{ category.strCategory }}</a>
           </li>
         </ul>
       </div>
@@ -17,10 +19,12 @@
     <!-- Áreas -->
     <div class="col-md-4 mb-4 mb-md-0">
       <div class="list-container">
-        <h2>Áreas</h2>
+        <h2>Areas</h2>
         <ul>
+          <!-- Recorrer las áreas -->
           <li *ngFor="let area of areas">
-            {{ area.strArea }}
+            <!-- Enlace a la página de búsqueda con el tipo area (a) y el valor -->
+            <a class="text-decoration-none text-white link-info" routerLink="/search/a/{{ area.strArea }}">{{ area.strArea }}</a>
           </li>
         </ul>
       </div>
@@ -29,10 +33,12 @@
     <!-- Ingredientes -->
     <div class="col-md-4 mb-4 mb-md-0">
       <div class="list-container">
-        <h2>Ingredientes</h2>
+        <h2>Ingredients</h2>
         <ul>
+          <!-- Recorrer los ingredientes -->
           <li *ngFor="let ingredient of ingredients">
-            {{ ingredient.strIngredient }}
+            <!-- Enlace a la página de búsqueda con el tipo ingredient (i) y el valor -->
+            <a class="text-decoration-none text-white link-info" routerLink="/search/i/{{ ingredient.strIngredient }}">{{ ingredient.strIngredient }}</a>
           </li>
         </ul>
       </div>

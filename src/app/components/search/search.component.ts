@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MealService } from '../../services/meal.service';
 import { IMeal } from '../../interfaces/meal';
 import { Router } from '@angular/router';
@@ -21,7 +21,9 @@ export class SearchComponent {
     private tagsPipe: TagsPipe
   ) {}
 
+  // Función para buscar recetas
   search(type: string) {
+    // Realizar la búsqueda según el tipo seleccionado
     switch(type) {
       // Por nombre
       case 'n':
@@ -51,7 +53,9 @@ export class SearchComponent {
           (item) => {
             let mealsByIngredient = item.meals;
 
+            // Recorrer las comidas por ingrediente (obtener por ingrediente no devuelve todos los atributos de la comida)
             mealsByIngredient.forEach(item => {
+              // Obtener la comida por su id (uno de los valores que devuelve, lo usamos para obtener el resto de atributos de la comida)
               this.mealService.getMealById(item.idMeal).subscribe(
                 (mealById) => {
                   this.result.push(mealById.meals[0]);
@@ -71,7 +75,9 @@ export class SearchComponent {
           (item) => {
             let mealsByCategory = item.meals;
 
+            // Recorrer las comidas por categoría (obtener por categoría no devuelve todos los atributos de la comida)
             mealsByCategory.forEach(item => {
+              // Obtener la comida por su id (uno de los valores que devuelve, lo usamos para obtener el resto de atributos de la comida)
               this.mealService.getMealById(item.idMeal).subscribe(
                 (mealById) => {
                   this.result.push(mealById.meals[0]);
@@ -91,7 +97,9 @@ export class SearchComponent {
           (item) => {
             let mealsByArea = item.meals;
 
+            // Recorrer las comidas por área (obtener por área no devuelve todos los atributos de la comida)
             mealsByArea.forEach(item => {
+              // Obtener la comida por su id (uno de los valores que devuelve, lo usamos para obtener el resto de atributos de la comida)
               this.mealService.getMealById(item.idMeal).subscribe(
                 (mealById) => {
                   this.result.push(mealById.meals[0]);
@@ -105,6 +113,22 @@ export class SearchComponent {
     }
   }
 
+  // Inicializar el componente
+  ngOnInit() {
+    // Rescatar los parámetros de la URL
+    const params = this.router.url;
+    const type = params.split('/')[2];
+    const value = params.split('/')[3];
+
+    // Asignar los parámetros a las variables de la clase
+    this.searchType = type;
+    this.searchInput = value;
+
+    // Realizar la búsqueda según los parámetros de la URL  
+    this.search(type);
+  }
+
+  // Función para navegar a la página de detalles
   details(id: string) {
     this.router.navigate(['/details', id]);
   }
