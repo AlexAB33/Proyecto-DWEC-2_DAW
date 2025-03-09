@@ -8,8 +8,8 @@ import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
+import { ListComponent } from './components/list/list.component';
 import { RandomComponent } from './components/random/random.component';
-import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -23,8 +23,8 @@ import { DetailsComponent } from './components/details/details.component';
     FooterComponent,
     HomeComponent,
     SearchComponent,
+    ListComponent,
     RandomComponent,
-    AboutComponent,
     NotFoundComponent,
     DetailsComponent,
   ],

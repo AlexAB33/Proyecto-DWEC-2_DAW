@@ -43,10 +43,6 @@ export class MealService {
     return this.http.get<ApiResponse>(`${URL_BASE}/random.php`);
   }
 
-  getAllMealCategories(): Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(`${URL_BASE}/categories.php`);
-  }
-
   listAllCategories(): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(`${URL_BASE}/list.php?c=list`);
   }

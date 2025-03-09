@@ -1,1 +1,69 @@
-<p>home works!</p>
+<div class="container text-center py-5">
+  <!-- Welcome message -->
+  <div class="mb-5">
+    <h1 class="display-4 fw-bold">Welcome to TheMealDB</h1>
+    <p class="lead mt-3">A free recipe database from around the world</p>
+    <p class="mb-5">TheMealDB allows you to search, explore and discover thousands of culinary recipes from different countries and categories. Perfect for inspiring your daily cooking.</p>
+  </div>
+
+  <!-- Three large buttons -->
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card border-0 h-100 shadow-sm">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center py-5">
+          <div class="btn btn-primary btn-circle mb-3 transition-hover">
+            <i class="fas fa-search fa-3x py-3"></i>
+          </div>
+          <h3 class="mb-3">Search</h3>
+          <p>Find recipes by name, ingredient, category or country</p>
+          <button class="btn btn-outline-primary mt-auto" routerLink="/search">Search Recipes</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card border-0 h-100 shadow-sm">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center py-5">
+          <div class="btn btn-danger btn-circle mb-3 transition-hover">
+            <i class="fas fa-list-ul fa-3x py-3"></i>
+          </div>
+          <h3 class="mb-3">Lists</h3>
+          <p>Explore all available categories and culinary areas</p>
+          <button class="btn btn-outline-danger mt-auto" routerLink="/categories">View Lists</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card border-0 h-100 shadow-sm">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center py-5">
+          <div class="btn btn-success btn-circle mb-3 transition-hover">
+            <i class="fas fa-random fa-3x py-3"></i>
+          </div>
+          <h3 class="mb-3">Surprise Me</h3>
+          <p>Discover a random recipe to inspire your cooking</p>
+          <button class="btn btn-outline-success mt-auto" routerLink="/random">Random Recipe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .btn-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .transition-hover {
+    transition: transform 0.3s ease;
+  }
+
+  .transition-hover:hover {
+    transform: scale(1.1);
+  }
+</style>

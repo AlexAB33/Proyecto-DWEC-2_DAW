@@ -1,0 +1,6 @@
+.error-code {
+  font-size: 140px;
+  font-weight: bold;
+  color: #dc3545;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}

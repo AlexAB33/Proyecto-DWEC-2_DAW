@@ -15,10 +15,10 @@ export class RandomComponent implements OnInit {
 
   ngOnInit(): void {
     this.mealService.getRandomMeal().subscribe(
-      (meal) => {
-          this.result = meal.meals[0];
-          this.mealService.setIngredientsAndMeasures(this.result);
-          this.mealService.setTags(this.result);
+      (item) => {
+        this.result = item.meals[0];
+        this.mealService.setIngredientsAndMeasures(this.result);
+        this.mealService.setTags(this.result);
       }
     );
   }
