@@ -115,17 +115,22 @@ export class SearchComponent {
 
   // Inicializar el componente
   ngOnInit() {
-    // Rescatar los parámetros de la URL
-    const params = this.router.url;
-    const type = params.split('/')[2];
-    const value = params.split('/')[3];
+    // Valor por defecto
+    this.searchType = 'n';
 
-    // Asignar los parámetros a las variables de la clase
-    this.searchType = type;
-    this.searchInput = value;
+    // Rescatar los parámetros de la URL si existen
+    if (this.router.url.includes('/search/')) {
+      const params = this.router.url;
+      const type = params.split('/')[2];
+      const value = params.split('/')[3];
 
-    // Realizar la búsqueda según los parámetros de la URL  
-    this.search(type);
+      // Asignar los parámetros a las variables de la clase
+      this.searchType = type;
+      this.searchInput = value;
+
+      // Realizar la búsqueda según los parámetros de la URL
+      this.search(type);
+    }
   }
 
   // Función para navegar a la página de detalles
