@@ -6,6 +6,7 @@ import { ListComponent } from './components/list/list.component';
 import { RandomComponent } from './components/random/random.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DetailsComponent } from './components/details/details.component';
+import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'list', component: ListComponent },
   { path: 'random', component: RandomComponent },
   { path: 'details/:id', component: DetailsComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'search/:type/:value', component: SearchComponent },
   { path: '**', component: NotFoundComponent },
 ];

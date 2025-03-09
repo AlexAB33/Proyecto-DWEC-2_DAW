@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './components/details/details.component';
 import { IngredientsMeasuresPipe } from './pipes/ingredients-measures.pipe';
 import { TagsPipe } from './pipes/tags.pipe';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TagsPipe } from './pipes/tags.pipe';
     DetailsComponent,
     IngredientsMeasuresPipe,
     TagsPipe,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
