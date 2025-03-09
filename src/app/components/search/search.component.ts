@@ -12,7 +12,7 @@ import { TagsPipe } from '../../pipes/tags.pipe';
 })
 export class SearchComponent {
   result!: IMeal[];
-  searchType: string = 'n';
+  searchType!: string;
   searchInput!: string;
 
   constructor(
