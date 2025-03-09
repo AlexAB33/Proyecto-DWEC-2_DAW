@@ -1,29 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { MealService } from '../../services/meal.service';
 import { IMeal } from '../../interfaces/meal';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-random',
-  templateUrl: './random.component.html',
-  styleUrl: './random.component.css',
-  standalone: false
+  selector: 'app-details',
+  standalone: false,
+  templateUrl: './details.component.html',
+  styleUrl: './details.component.css'
 })
-export class RandomComponent implements OnInit {
+export class DetailsComponent implements OnInit {
   result!: IMeal;
 
-  constructor(private mealService: MealService) {}
+  constructor(private mealService: MealService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.mealService.getRandomMeal().subscribe(
+    this.mealService.getMealById(this.route.snapshot.params['id']).subscribe(
       (meal) => {
           this.result = meal.meals[0];
           this.mealService.setIngredientsAndMeasures(this.result);
           this.mealService.setTags(this.result);
       }
     );
-  }
-
-  recargar(): void {
-    window.location.reload();
   }
 }

@@ -12,6 +12,8 @@ import { RandomComponent } from './components/random/random.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { provideHttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,12 @@ import { provideHttpClient } from '@angular/common/http';
     RandomComponent,
     AboutComponent,
     NotFoundComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient()

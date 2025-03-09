@@ -1,1 +1,49 @@
-<p>search works!</p>
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col">
+          <form #searchForm="ngForm">
+              <div class="input-group mb-5">
+                  <select class="form-select" style="max-width: 150px;" [(ngModel)]="searchType" name="searchType">
+                    <option value="n">Name</option>
+                    <option value="f">First letter</option>
+                    <option value="i">Ingredient</option>
+                    <option value="c">Category</option>
+                    <option value="a">Area</option>
+                  </select>
+                  <input type="text" [(ngModel)]="searchInput" name="searchInput" class="form-control" placeholder="Search...">
+                  <button class="btn btn-primary" type="button" (click)="search(searchType)">Search</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+
+<!-- Formulario de búsqueda (sin cambios) -->
+
+<div class="container">
+  <div class="row">
+    <!-- Mostrar mensaje si no hay resultados -->
+    <div class="col-12 text-center" *ngIf="!result">
+      <h3>No se encontraron resultados.</h3>
+    </div>
+
+    <!-- Mostrar tarjetas de resultados -->
+    <div class="col-md-4 mb-4" *ngFor="let res of result">
+      <div class="card h-100">
+        <img [src]="res.strMealThumb" class="card-img-top" [alt]="res.strMeal">
+        <div class="card-body">
+          <h5 class="card-title">{{ res.strMeal }}</h5>
+          <p class="card-text">{{ res.strInstructions.slice(0, 200) }}...</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><b>Category:</b> {{ res.strCategory }}</li>
+          <li class="list-group-item"><b>Area:</b> {{ res.strArea }}</li>
+          <li class="list-group-item"><b>Tags:</b> {{ res.strTags }}</li>
+        </ul>
+        <div class="card-body">
+          <button class="btn btn-primary" (click)="details(res.idMeal)">Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
