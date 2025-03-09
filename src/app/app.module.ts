@@ -14,6 +14,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './components/details/details.component';
+import { IngredientsMeasuresPipe } from './pipes/ingredients-measures.pipe';
+import { TagsPipe } from './pipes/tags.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { DetailsComponent } from './components/details/details.component';
     RandomComponent,
     NotFoundComponent,
     DetailsComponent,
+    IngredientsMeasuresPipe,
+    TagsPipe,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import { DetailsComponent } from './components/details/details.component';
     FormsModule
   ],
   providers: [
-    provideHttpClient()
+    provideHttpClient(),
+    IngredientsMeasuresPipe,
+    TagsPipe
   ],
   bootstrap: [AppComponent]
 })

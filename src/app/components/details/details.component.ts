@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MealService } from '../../services/meal.service';
 import { IMeal } from '../../interfaces/meal';
 import { ActivatedRoute } from '@angular/router';
+import { IngredientsMeasuresPipe } from '../../pipes/ingredients-measures.pipe';
+import { TagsPipe } from '../../pipes/tags.pipe';
 
 @Component({
   selector: 'app-details',
@@ -12,14 +14,19 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailsComponent implements OnInit {
   result!: IMeal;
 
-  constructor(private mealService: MealService, private route: ActivatedRoute) {}
+  constructor(
+    private mealService: MealService,
+    private route: ActivatedRoute,
+    private ingredientsMeasuresPipe: IngredientsMeasuresPipe,
+    private tagsPipe: TagsPipe
+  ) {}
 
   ngOnInit(): void {
     this.mealService.getMealById(this.route.snapshot.params['id']).subscribe(
       (item) => {
         this.result = item.meals[0];
-        this.mealService.setIngredientsAndMeasures(this.result);
-        this.mealService.setTags(this.result);
+        this.result = this.ingredientsMeasuresPipe.transform(this.result);
+        this.result = this.tagsPipe.transform(this.result);
       }
     );
   }

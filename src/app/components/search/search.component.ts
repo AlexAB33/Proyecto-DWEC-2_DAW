@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MealService } from '../../services/meal.service';
 import { IMeal } from '../../interfaces/meal';
 import { Router } from '@angular/router';
+import { TagsPipe } from '../../pipes/tags.pipe';
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -13,7 +15,11 @@ export class SearchComponent {
   searchType: string = 'n';
   searchInput!: string;
 
-  constructor(private mealService: MealService, private router: Router) {}
+  constructor(
+    private mealService: MealService,
+    private router: Router,
+    private tagsPipe: TagsPipe
+  ) {}
 
   search(type: string) {
     switch(type) {
@@ -22,7 +28,7 @@ export class SearchComponent {
         this.mealService.getMealByName(this.searchInput).subscribe(
           (item) => {
             this.result = item.meals;
-            this.result.forEach(item => { this.mealService.setTags(item); });
+            this.tagsPipe.transform(this.result);
           }
         );
         break;
@@ -32,7 +38,7 @@ export class SearchComponent {
         this.mealService.getMealByFirstLetter(this.searchInput).subscribe(
           (item) => {
             this.result = item.meals;
-            this.result.forEach(item => { this.mealService.setTags(item); });
+            this.tagsPipe.transform(this.mealService);
           }
         );
         break;
@@ -49,7 +55,7 @@ export class SearchComponent {
               this.mealService.getMealById(item.idMeal).subscribe(
                 (mealById) => {
                   this.result.push(mealById.meals[0]);
-                  this.mealService.setTags(mealById.meals[0]);
+                  this.tagsPipe.transform(this.mealService);
                 }
               );
             });
@@ -69,7 +75,7 @@ export class SearchComponent {
               this.mealService.getMealById(item.idMeal).subscribe(
                 (mealById) => {
                   this.result.push(mealById.meals[0]);
-                  this.mealService.setTags(mealById.meals[0]);
+                  this.tagsPipe.transform(this.mealService);
                 }
               );
             });
@@ -89,7 +95,7 @@ export class SearchComponent {
               this.mealService.getMealById(item.idMeal).subscribe(
                 (mealById) => {
                   this.result.push(mealById.meals[0]);
-                  this.mealService.setTags(mealById.meals[0]);
+                  this.tagsPipe.transform(this.mealService);
                 }
               );
             });

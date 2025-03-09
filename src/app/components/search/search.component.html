@@ -32,8 +32,8 @@
       <div class="card h-100">
         <img [src]="res.strMealThumb" class="card-img-top" [alt]="res.strMeal">
         <div class="card-body">
-          <h5 class="card-title">{{ res.strMeal }}</h5>
-          <p class="card-text">{{ res.strInstructions.slice(0, 200) }}...</p>
+          <h5 class="card-title">{{ res.strMeal | uppercase }}</h5>
+          <p class="card-text">{{ res.strInstructions | slice:0:200 }}...</p>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><b>Category:</b> {{ res.strCategory }}</li>

@@ -54,31 +54,4 @@ export class MealService {
   listAllIngredients(): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(`${URL_BASE}/list.php?i=list`);
   }
-
-  setIngredientsAndMeasures(meal: any): void {
-    const ingredients: string[] = [];
-    const measures: string[] = [];
-
-    for (let i = 1; i <= 20; i++) {
-      const ingredient = meal[`strIngredient${i}`];
-      const measure = meal[`strMeasure${i}`];
-
-      if (ingredient) {
-        ingredients.push(ingredient);
-        measures.push(measure);
-      } else {
-        break;
-      }
-    }
-    meal.strIngredients = ingredients;
-    meal.strMeasures = measures;
-  }
-
-  setTags(meal: any): void {
-    if (meal.strTags) {
-      meal.strTags = meal.strTags.replaceAll(",", ", ");
-    } else {
-      meal.strTags = "No tags";
-    }
-  }
 }
