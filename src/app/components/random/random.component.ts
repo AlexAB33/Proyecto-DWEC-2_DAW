@@ -15,13 +15,8 @@ export class RandomComponent implements OnInit {
     private mealService: MealService
   ) {}
 
-  // Inicializar el componente
+  // Inicializar el componente y obtener una comida aleatoria
   ngOnInit(): void {
-    this.getRandomMeal();
-  }
-
-  // Obtener una comida aleatoria
-  getRandomMeal(): void {
     this.mealService.getRandomMeal().subscribe((item) => {
       this.result = item.meals[0];
     });
@@ -32,3 +27,4 @@ export class RandomComponent implements OnInit {
     window.location.reload();
   }
 }
+

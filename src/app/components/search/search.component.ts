@@ -41,7 +41,7 @@ export class SearchComponent implements OnInit {
         );
         break;
 
-      // Por ingrediente, categoría y área
+      // Por ingrediente
       case 'i':
         this.result = [];
 
