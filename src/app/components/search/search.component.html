@@ -3,14 +3,14 @@
       <div class="col">
           <form #searchForm="ngForm">
               <div class="input-group">
-                  <select class="form-select" style="max-width: 150px;" [(ngModel)]="searchType" name="searchType">
+                  <select class="form-select bg-dark text-white border-secondary" style="max-width: 150px;" [(ngModel)]="searchType" name="searchType">
                     <option value="n">Name</option>
                     <option value="f">First letter</option>
                     <option value="i">Ingredient</option>
                     <option value="c">Category</option>
                     <option value="a">Area</option>
                   </select>
-                  <input type="text" [(ngModel)]="searchInput" name="searchInput" class="form-control" placeholder="Search...">
+                  <input type="text" [(ngModel)]="searchInput" name="searchInput" class="form-control bg-dark text-white border-secondary" placeholder="Search...">
                   <button class="btn btn-primary" type="button" (click)="search(searchType)">Search</button>
               </div>
           </form>
@@ -27,7 +27,7 @@
 
   <!-- Mostrar tarjetas de resultados -->
   <div class="col-md-4 mb-4" *ngFor="let res of result">
-    <div class="card h-100">
+    <div class="card h-100 bg-dark text-white border border-secondary">
       <!-- Imagen de la comida -->
       <img [src]="res.strMealThumb" class="card-img-top" [alt]="res.strMeal">
       <div class="card-body">
@@ -40,9 +40,9 @@
 
       <!-- Lista de categorías, áreas y tags -->
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><b>Category:</b> {{ res.strCategory }}</li>
-        <li class="list-group-item"><b>Area:</b> {{ res.strArea }}</li>
-        <li class="list-group-item"><b>Tags:</b> {{ (res | tags).strTags }}</li>
+        <li class="list-group-item bg-dark text-white border-0"><b>Category:</b> {{ res.strCategory }}</li>
+        <li class="list-group-item bg-dark text-white border-0"><b>Area:</b> {{ res.strArea }}</li>
+        <li class="list-group-item bg-dark text-white border-0"><b>Tags:</b> {{ (res | tags).strTags }}</li>
       </ul>
 
       <!-- Botón de detalles -->
@@ -52,3 +52,7 @@
     </div>
   </div>
 </div>
+
+<style>
+
+</style>
